@@ -1,0 +1,46 @@
+<%- include('partials/start') %>
+<%- include('partials/navigation') %>
+
+<body>
+
+    
+
+    <div class="main-container">
+      
+
+      <div class="spotify-playlists">
+        <h2>My songs</h2>
+
+        <div class="list">
+          <% if (musicList.length > 0) { %>
+              <% musicList.forEach((music) => { %>
+                  <div class="item"> <!-- Create a new item container for each music -->
+                      <ul>
+                          <li class="music-item">
+                              <a href="/playsong/<%= music.id %>">
+                                  <% if (music.picture_path) { %>
+                                      <img src="/<%= music.picture_path %>" alt="Cover Image">
+                                  <% } %>
+                                  <h4><%= music.song_name %> <br></h4>
+                                  <p><%= music.author %></p>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              <% }) %>
+          <% } else { %>
+              <p>No music available. Please add some!</p>
+          <% } %>
+      </div>
+      </div>
+
+      
+
+      
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/23cecef777.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
